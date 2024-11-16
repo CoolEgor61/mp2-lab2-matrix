@@ -20,6 +20,7 @@ public:
 		T* a = new T[10] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		v1= new TDynamicVector<T>(a, 10);
 		delete[] a;
+
 		v = new TDynamicVector<T>(*v1);
 
 		T* b = new T[10] {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
@@ -112,12 +113,12 @@ TYPED_TEST_P(TestTDynamicVector, can_set_and_get_element)
 
 TYPED_TEST_P(TestTDynamicVector, throws_when_set_element_with_negative_index)
 {
-	ASSERT_ANY_THROW(v->at(-1) = 4);
+	ASSERT_ANY_THROW(this->v->at(-1) = 4);
 }
 
 TYPED_TEST_P(TestTDynamicVector, throws_when_set_element_with_too_large_index)
 {
-	ASSERT_ANY_THROW(v->at(50) = 4);
+	ASSERT_ANY_THROW(this->v->at(50) = 4);
 }
 
 TYPED_TEST_P(TestTDynamicVector, can_assign_vector_to_itself)
